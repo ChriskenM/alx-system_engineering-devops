@@ -1,2 +1,2 @@
 #!/bin/bash
-chown -R  vincent:staff *
+find . ( ! -user vincent -o ! -group staff ) -exec chown -vc vincent:staff {} +
