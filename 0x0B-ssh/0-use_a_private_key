@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 #uses ssh connects to a server using private key ~/.ssh/school user@ubuntu
 
 server_ip="54.172.224.134"
