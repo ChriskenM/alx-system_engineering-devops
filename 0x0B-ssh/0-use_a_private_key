@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+#uses ssh connects to a server using private key ~/.ssh/school user@ubuntu
+
+server_ip="54.172.224.134"
+private_key_path="~/.ssh/school"
+user="ubuntu"
+
+ssh -i $private_key_path $user@$server_ip
