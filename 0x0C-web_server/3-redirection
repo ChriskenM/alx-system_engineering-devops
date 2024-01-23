@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+#Configure Nginx server to that /redirect_me is redirecting to another page.
+#The redirection is configured as a "301 Moved Permanently"
+
+sudo apt-get update
+sudo apt-get install -y nginx
+
+sudo mkdir /etc/nginx/html
+sudo touch /etc/nginx/html/index.html
+echo 'Hello World!' | sudo tee /var/www/html/index.html
+sudo sh -c 'printf %s "server {
+    listen 80;
+    listen [::]:80 default_server;
+    root   /etc/nginx/html;
+    index  index.html index.htm;
+    location /redirect_me {
+        return 301 https://github.com;
+    }
+}" > /etc/nginx/sites-available/default'
+
+sudo service nginx restart
