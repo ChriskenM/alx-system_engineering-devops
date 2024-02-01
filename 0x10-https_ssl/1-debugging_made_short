@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+echo -e "server {\n    listen 80 default_server;\n    listen [::]:80 default_server;\n    server_name _;\n    root /var/www/html;\n    index index.html;\n    location / {\n        try_files \$uri \$uri/ =404;\n    }\n}" > /etc/nginx/sites-available/default
+mkdir -p /var/www/html
+echo "Hello, Nginx!" > /var/www/html/index.html
+service nginx restart

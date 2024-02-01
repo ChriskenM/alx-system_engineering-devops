@@ -1,0 +1,29 @@
+Hit:1 http://ppa.launchpad.net/brightbox/ruby-ng/ubuntu focal InRelease
+Hit:2 http://archive.ubuntu.com/ubuntu focal InRelease
+Get:3 http://archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]
+Get:4 http://security.ubuntu.com/ubuntu focal-security InRelease [114 kB]
+Hit:5 http://ppa.launchpad.net/vbernat/haproxy-2.8/ubuntu focal InRelease
+Hit:6 https://deb.nodesource.com/node_14.x focal InRelease
+Get:7 https://download.docker.com/linux/ubuntu focal InRelease [57.7 kB]
+Hit:8 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+Get:9 http://security.ubuntu.com/ubuntu focal-security/main amd64 Packages [3,330 kB]
+Get:10 http://security.ubuntu.com/ubuntu focal-security/universe amd64 Packages [1,172 kB]
+Get:11 https://download.docker.com/linux/ubuntu focal/stable amd64 Packages [44.3 kB]
+Get:12 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 Packages [1,469 kB]
+Get:13 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 Packages [3,807 kB]
+Fetched 10.1 MB in 15s (669 kB/s)
+Reading package lists...
+W: Target Packages (stable/binary-amd64/Packages) is configured multiple times in /etc/apt/sources.list:50 and /etc/apt/sources.list.d/docker.list:1
+W: Target Packages (stable/binary-all/Packages) is configured multiple times in /etc/apt/sources.list:50 and /etc/apt/sources.list.d/docker.list:1
+W: Target Packages (stable/binary-amd64/Packages) is configured multiple times in /etc/apt/sources.list:50 and /etc/apt/sources.list.d/docker.list:1
+W: Target Packages (stable/binary-all/Packages) is configured multiple times in /etc/apt/sources.list:50 and /etc/apt/sources.list.d/docker.list:1
+Reading package lists...
+Building dependency tree...
+Reading state information...
+nginx is already the newest version (1.18.0-0ubuntu1.4).
+0 upgraded, 0 newly installed, 0 to remove and 248 not upgraded.
+W: Target Packages (stable/binary-amd64/Packages) is configured multiple times in /etc/apt/sources.list:50 and /etc/apt/sources.list.d/docker.list:1
+W: Target Packages (stable/binary-all/Packages) is configured multiple times in /etc/apt/sources.list:50 and /etc/apt/sources.list.d/docker.list:1
+ * Restarting nginx nginx
+   ...done.
+ * nginx is running
