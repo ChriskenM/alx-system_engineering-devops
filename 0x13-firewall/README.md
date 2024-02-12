@@ -5,6 +5,7 @@
 + Let’s install the ufw firewall and setup a few rules on web-01.
 
 <h2> 0-block_all_incoming_traffic_but </h2>
+
 + The requirements below must be applied to web-01(Server).
 + Configure ufw so that it blocks all incoming traffic, except the following TCP ports:
 + 22 (SSH)
