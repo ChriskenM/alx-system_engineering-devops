@@ -14,10 +14,3 @@ mkdir -p /run/nginx
 
 # Step 5: Restart Nginx as the www-data user
 service nginx restart
-
-# Optional: Verify that Nginx is running as the www-data user
-ps auxff | grep ngin[x]
-
-# Optional: Verify that Nginx is listening on port 8080
-nc -z 0 8080 ; echo $?
-
