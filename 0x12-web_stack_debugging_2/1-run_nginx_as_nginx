@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 
+# Set the desired username (replace 'your_username' with the actual username)
+USERNAME="your_username"
+
 # Step 1: Ensure correct permissions for nginx.conf
 chmod 644 /etc/nginx/nginx.conf
 
-# Step 2: Update the user in nginx.conf to www-data
-sed -Ei 's/\s*#?\s*user .*/user www-data;/' /etc/nginx/nginx.conf
+# Step 2: Update the user in nginx.conf to the specified username
+sed -Ei "s/\s*#?\s*user .*/user $USERNAME;/" /etc/nginx/nginx.conf
 
 # Step 3: Update the default site configuration to listen on port 8080
 sed -Ei 's/(listen (\[::\]:)?80) /\180 /' /etc/nginx/sites-enabled/default
@@ -12,5 +15,12 @@ sed -Ei 's/(listen (\[::\]:)?80) /\180 /' /etc/nginx/sites-enabled/default
 # Step 4: Create the directory for the PID file if it doesn't exist
 mkdir -p /run/nginx
 
-# Step 5: Restart Nginx as the www-data user
-service nginx restart
+# Step 5: Restart Nginx as the specified user
+su $USERNAME -s /bin/bash -c 'service nginx restart'
+
+# Optional: Verify that Nginx is running as the specified user
+ps auxff | grep ngin[x]
+
+# Optional: Verify that Nginx is listening on port 8080
+nc -z 0 8080 ; echo $?
+
