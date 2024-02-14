@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-
+# Script fixes this container so that Nginx is running as the nginx user.
 # Step 1: Ensure correct permissions for nginx.conf
 chmod 644 /etc/nginx/nginx.conf
 
-# Step 2: Update the user in nginx.conf to www-data
-sed -Ei 's/\s*#?\s*user .*/user www-data;/' /etc/nginx/nginx.conf
+# Step 2: Update the user in nginx.conf to nginx
+sed -Ei 's/\s*#?\s*user .*/user nginx;/' /etc/nginx/nginx.conf
 
 # Step 3: Update the default site configuration to listen on port 8080
 sed -Ei 's/(listen (\[::\]:)?80) /\180 /' /etc/nginx/sites-enabled/default
@@ -12,5 +12,5 @@ sed -Ei 's/(listen (\[::\]:)?80) /\180 /' /etc/nginx/sites-enabled/default
 # Step 4: Create the directory for the PID file if it doesn't exist
 mkdir -p /run/nginx
 
-# Step 5: Restart Nginx as the www-data user
+# Step 5: Restart Nginx as the nginx user
 service nginx restart
