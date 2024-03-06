@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Check if the password argument is provided
+if [ -z "$1" ]; then
+    echo "Usage: $0 <mysql_password>"
+    exit 1
+fi
+
+# Define the backup file names
+backup_file="backup.sql"
+archive_file="$(date +'%d-%m-%Y').tar.gz"
+
+# Perform MySQL dump
+mysqldump -u root -p"$1" --all-databases > "$backup_file"
+
+# Check if the dump was successful
+if [ $? -ne 0 ]; then
+    echo "MySQL dump failed. Check your credentials."
+    exit 1
+fi
+
+# Create a tar.gz archive
+tar -czvf "$archive_file" "$backup_file"
+
+# Clean up the temporary backup file
+rm "$backup_file"
+
+echo "MySQL backup completed. Archive created: $archive_file"

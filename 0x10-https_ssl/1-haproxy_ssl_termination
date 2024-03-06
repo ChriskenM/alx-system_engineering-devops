@@ -27,5 +27,5 @@ backend www-backend
     balance roundrobin
     option httpclose
     option forwardfor
-    server 323627-web-01 100.25.36.59:80 check
+    server 323627-web-01 34.224.5.175:80 check
     server 323627-web-02 100.24.255.151:80 check
