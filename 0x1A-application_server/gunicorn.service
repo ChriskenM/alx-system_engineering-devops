@@ -1,0 +1,17 @@
+[Unit]
+Description=Gunicorn service for AirBnB clone web dynamic application
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/AirBnB_clone_v4
+Environment="PATH=/path/to/python/bin:/usr/local/sbin:/usr/bin:/sbin:/bin"
+ExecStart=/path/to/python/bin/gunicorn --bind 127.0.0.1:5003 --workers 3 web_dynamic/2-hbnb.py
+Restart=on-failure
+SyslogIdentifier=gunicorn_airbnb
+ErrorLog=/tmp/airbnb-error.log
+AccessLog=/tmp/airbnb-access.log
+
+[Install]
+WantedBy=multi-user.target
